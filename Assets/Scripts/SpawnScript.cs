@@ -15,7 +15,7 @@ public class SpawnScript : MonoBehaviour
     public void spawnPassenger()
     {
         GameObject targetClone = Instantiate(targetPrefab) as GameObject;
-        targetClone.transform.position = new Vector3(-1, 1, 17);
+        targetClone.transform.position = new Vector3(-1, 0, 17);
         shouldSpawn = false;
     }
 

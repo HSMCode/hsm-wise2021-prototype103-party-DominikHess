@@ -21,12 +21,24 @@ public class Movement : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
+        destroyPassenger(collision);
+    }
+
+    public void destroyPassenger(Collision collision)
+    {
         if (collision.gameObject.tag == "LevelBorderLeft")
         {
-            spawnScript = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnScript>();
-            spawnScript.setShouldSpawn();
-            
-            Destroy(gameObject);
+            Debug.Log("Hit left Level Border");
         }
+
+        if (collision.gameObject.tag == "Passenger")
+        {
+            Debug.Log("Shot Passenger");
+        }
+
+        spawnScript = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnScript>();
+        spawnScript.setShouldSpawn();
+
+        Destroy(gameObject);
     }
 }
