@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    private int moveSpeed = 8;
+    private int moveSpeed = 5;
     public SpawnScript spawnScript;
 
     // Start is called before the first frame update
@@ -29,11 +29,13 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.tag == "LevelBorderLeft")
         {
             Debug.Log("Hit left Level Border");
+            // Check if Passenger is Patriot or Civillian
         }
 
         if (collision.gameObject.tag == "Passenger")
         {
             Debug.Log("Shot Passenger");
+            // Check if Passenger is Patriot or Civillian
         }
 
         spawnScript = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnScript>();

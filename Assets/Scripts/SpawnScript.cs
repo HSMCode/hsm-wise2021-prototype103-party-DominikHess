@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class SpawnScript : MonoBehaviour
 {
-    public GameObject targetPrefab;
+    public GameObject[] passengers;
     public bool shouldSpawn = false;
+    private int random;
 
     void Start()
     {
@@ -14,7 +15,9 @@ public class SpawnScript : MonoBehaviour
 
     public void spawnPassenger()
     {
-        GameObject targetClone = Instantiate(targetPrefab) as GameObject;
+        random = Random.Range(0, 3);
+
+        GameObject targetClone = Instantiate(passengers[random]) as GameObject;
         targetClone.transform.position = new Vector3(-1, 0, 17);
         shouldSpawn = false;
     }
