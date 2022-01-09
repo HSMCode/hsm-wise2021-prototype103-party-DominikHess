@@ -26,16 +26,28 @@ public class Movement : MonoBehaviour
 
     public void destroyPassenger(Collision collision)
     {
+        // If a passenger reaches the left level border: Cgeck if they are a Patriot and calculate score accordingly
         if (collision.gameObject.tag == "LevelBorderLeft")
         {
-            Debug.Log("Hit left Level Border");
-            // Check if Passenger is Patriot or Civillian
+            if (gameObject.tag == "Patriot")
+            {
+                Debug.Log("Oops! Patriot on Board!");
+            }
+            else 
+            {
+                Debug.Log("Civillian on Board!");
+            }
+        }
+
+        if (collision.gameObject.tag == "Patriot")
+        {
+            Debug.Log("Shot Patriot");
+           
         }
 
         if (collision.gameObject.tag == "Passenger")
         {
-            Debug.Log("Shot Passenger");
-            // Check if Passenger is Patriot or Civillian
+            Debug.Log("Shot Civillian");
         }
 
         spawnScript = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnScript>();

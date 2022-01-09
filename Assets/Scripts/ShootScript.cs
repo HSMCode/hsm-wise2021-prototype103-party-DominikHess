@@ -27,7 +27,16 @@ public class ShootScript : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        passengerScript = GameObject.FindGameObjectWithTag("Passenger").GetComponent<Movement>();
+        if (collision.gameObject.tag == "Patriot")
+        {
+            passengerScript = GameObject.FindGameObjectWithTag("Patriot").GetComponent<Movement>();
+        }
+        else
+        {
+            passengerScript = GameObject.FindGameObjectWithTag("Passenger").GetComponent<Movement>();
+        }
+            
         passengerScript.destroyPassenger(collision);
     }
+
 }
