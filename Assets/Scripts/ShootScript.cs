@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ShootScript : MonoBehaviour
 {
-
     public Movement passengerScript;
 
     // Start is called before the first frame update
