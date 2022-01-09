@@ -34,8 +34,7 @@ public class ShootScript : MonoBehaviour
         else
         {
             passengerScript = GameObject.FindGameObjectWithTag("Passenger").GetComponent<Movement>();
-        }
-            
+        }   
         passengerScript.destroyPassenger(collision);
     }
 
