@@ -26,8 +26,7 @@ public class ShootScript : MonoBehaviour
             playShootSound();
             ParticleSystem smokeParticleSystem = GetComponent<ParticleSystem>();
             smokeParticleSystem.Play();
-            lastTimePressed = Time.time;  
-            
+            lastTimePressed = Time.time;
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {

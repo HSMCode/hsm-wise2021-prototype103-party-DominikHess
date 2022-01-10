@@ -8,15 +8,12 @@ public class ProcessHealthScript : MonoBehaviour
     public int currentHealth;
     public int patriotAmount = 0;
     public HealthBar healthBar;
-    
-
 
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
-        healthBar.SetMaxHealth(maxHealth);
-        
+        healthBar.SetMaxHealth(maxHealth);  
     }
 
     // Update is called once per frame
@@ -24,7 +21,7 @@ public class ProcessHealthScript : MonoBehaviour
     {
         if (currentHealth < 1)
         {
-            Debug.Log("No tea left on the ship! You lost!");
+            FindObjectOfType<GameManagerScript>().Restart();
         } 
     }
 
