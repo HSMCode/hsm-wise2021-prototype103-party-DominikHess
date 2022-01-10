@@ -7,14 +7,16 @@ public class Movement : MonoBehaviour
     private int movementSpeed = 5;
     public SpawnScript spawnScript;
     public ProcessHealthScript processHealthScript;
-    public ScoreScript scoreScript;
+    public ScoreScript scoreScript;  
     public FeedbackMessagesScript feedbackMessagesScript;
+    public SoundEffectsScript soundEffectsScript;
 
     // Start is called before the first frame update
     void Start()
     {
         scoreScript = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreScript>();
         feedbackMessagesScript = GameObject.FindGameObjectWithTag("Player").GetComponent<FeedbackMessagesScript>();
+        soundEffectsScript = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<SoundEffectsScript>();
     }
 
     // Update is called once per frame
@@ -46,11 +48,13 @@ public class Movement : MonoBehaviour
                 feedbackMessagesScript.PatriotOnBoardFeedback();
                 processHealthScript = GameObject.FindGameObjectWithTag("Player").GetComponent<ProcessHealthScript>();
                 processHealthScript.IncreasePatriotAmount();
+                soundEffectsScript.playFailSound();
             }
             else 
             {
                 feedbackMessagesScript.PassengerOnBoardFeedback();
                 scoreScript.AddScore(1);
+                soundEffectsScript.playSuccessSound();
             }
             Destroy(gameObject);
         }
@@ -61,6 +65,7 @@ public class Movement : MonoBehaviour
             feedbackMessagesScript.ShotPatriotFeedback();
             scoreScript.AddScore(5);
             StartCoroutine(PlayBloodParticles());
+            soundEffectsScript.playSuccessSound();
         }
 
         // Lose 5 Points if you shoot a Civillian
@@ -69,6 +74,7 @@ public class Movement : MonoBehaviour
             feedbackMessagesScript.ShotPassengerFeedback();
             scoreScript.AddScore(-5);
             StartCoroutine(PlayBloodParticles());
+            soundEffectsScript.playFailSound();
         }
     }
 

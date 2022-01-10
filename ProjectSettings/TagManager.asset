@@ -9,6 +9,7 @@ TagManager:
   - Passenger
   - Patriot
   - Score
+  - SoundEffects
   layers:
   - Default
   - TransparentFX
