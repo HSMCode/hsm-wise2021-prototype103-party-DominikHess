@@ -21,7 +21,7 @@ public class WaterScript : MonoBehaviour
         }
         if (gameObject.name == "Waves_back_1")
         {
-            yPos = -3f;
+            yPos = -3.65f;
             waveSpeed = 0.1f;
         }
         if (gameObject.name == "Waves_back_2")

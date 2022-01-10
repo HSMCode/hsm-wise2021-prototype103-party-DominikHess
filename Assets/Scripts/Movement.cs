@@ -8,11 +8,13 @@ public class Movement : MonoBehaviour
     public SpawnScript spawnScript;
     public ProcessHealthScript processHealthScript;
     public ScoreScript scoreScript;
+    public FeedbackMessagesScript feedbackMessagesScript;
 
     // Start is called before the first frame update
     void Start()
     {
         scoreScript = GameObject.FindGameObjectWithTag("Score").GetComponent<ScoreScript>();
+        feedbackMessagesScript = GameObject.FindGameObjectWithTag("Player").GetComponent<FeedbackMessagesScript>();
     }
 
     // Update is called once per frame
@@ -38,15 +40,13 @@ public class Movement : MonoBehaviour
         {
             if (gameObject.tag == "Patriot")
             {
-                Debug.Log("Oops! Patriot on Board!");
-
+                feedbackMessagesScript.PatriotOnBoardFeedback();
                 processHealthScript = GameObject.FindGameObjectWithTag("Player").GetComponent<ProcessHealthScript>();
                 processHealthScript.IncreasePatriotAmount();
-
             }
             else 
             {
-                Debug.Log("Civillian on Board!");
+                feedbackMessagesScript.PassengerOnBoardFeedback();
                 scoreScript.AddScore(1);
             }
         }
@@ -54,14 +54,14 @@ public class Movement : MonoBehaviour
         // Gain 5 Points if you shoot a Patriot
         if (collision.gameObject.tag == "Patriot")
         {
-            Debug.Log("Shot Patriot");
+            feedbackMessagesScript.ShotPatriotFeedback();
             scoreScript.AddScore(5);
         }
 
         // Lose 5 Points if you shoot a Civillian
         if (collision.gameObject.tag == "Passenger")
         {
-            Debug.Log("Shot Civillian");
+            feedbackMessagesScript.ShotPassengerFeedback();
             scoreScript.AddScore(-5);
         }
 

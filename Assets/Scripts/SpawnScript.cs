@@ -31,7 +31,7 @@ public class SpawnScript : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(2);
 
             if (shouldSpawn == true)
             {
