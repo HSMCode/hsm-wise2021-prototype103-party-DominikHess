@@ -6,21 +6,25 @@ public class ShootScript : MonoBehaviour
 {
     public Movement passengerScript;
     public AudioClip[] shootSounds;
+    private AudioSource audio;
     private int random;
+    private float lastTimePressed = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
         GetComponent<BoxCollider>().enabled = false;
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && Time.time > lastTimePressed + 1.5f)
         {
             GetComponent<BoxCollider>().enabled = true;
             playShootSound();
+            lastTimePressed = Time.time;            
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
@@ -43,10 +47,8 @@ public class ShootScript : MonoBehaviour
 
     private void playShootSound()
     {
-        random = Random.Range(0, 2);
-        AudioSource audio = GetComponent<AudioSource>();
+        random = Random.Range(0, 3);  
         audio.clip = shootSounds[random];
         audio.Play();
     }
-
 }
