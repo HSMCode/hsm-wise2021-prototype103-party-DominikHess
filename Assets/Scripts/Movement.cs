@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    private int moveSpeed = 5;
+    private int movementSpeed = 5;
     public SpawnScript spawnScript;
     public ProcessHealthScript processHealthScript;
     public ScoreScript scoreScript;
@@ -18,7 +18,12 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.forward * moveSpeed * Time.deltaTime);
+        transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
+    }
+
+    public void setMovementSpeed(int value)
+    {
+        movementSpeed = value;
     }
 
     void OnCollisionEnter(Collision collision)
