@@ -5,6 +5,8 @@ using UnityEngine;
 public class ShootScript : MonoBehaviour
 {
     public Movement passengerScript;
+    public AudioClip[] shootSounds;
+    private int random;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +20,7 @@ public class ShootScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             GetComponent<BoxCollider>().enabled = true;
+            playShootSound();
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {
@@ -36,6 +39,14 @@ public class ShootScript : MonoBehaviour
             passengerScript = GameObject.FindGameObjectWithTag("Passenger").GetComponent<Movement>();
         }   
         passengerScript.destroyPassenger(collision);
+    }
+
+    private void playShootSound()
+    {
+        random = Random.Range(0, 2);
+        AudioSource audio = GetComponent<AudioSource>();
+        audio.clip = shootSounds[random];
+        audio.Play();
     }
 
 }
