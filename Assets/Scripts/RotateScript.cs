@@ -4,20 +4,19 @@ using UnityEngine;
 
 public class RotateScript : MonoBehaviour
 {
+    private int rotationModifier = 1;
+
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (gameObject.name == "BritishFlag")
+        {
+            rotationModifier *= -1;
+        }
     }
 
     private void FixedUpdate()
     {
-        transform.Rotate(0, 0.5f, 0);
+        transform.Rotate(0, 0.5f * rotationModifier, 0);
     }
 }
