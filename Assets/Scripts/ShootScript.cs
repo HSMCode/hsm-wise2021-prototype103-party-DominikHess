@@ -24,7 +24,10 @@ public class ShootScript : MonoBehaviour
         {
             GetComponent<BoxCollider>().enabled = true;
             playShootSound();
-            lastTimePressed = Time.time;            
+            ParticleSystem smokeParticleSystem = GetComponent<ParticleSystem>();
+            smokeParticleSystem.Play();
+            lastTimePressed = Time.time;  
+            
         }
         if (Input.GetKeyUp(KeyCode.Space))
         {

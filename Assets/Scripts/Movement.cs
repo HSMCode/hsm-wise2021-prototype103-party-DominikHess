@@ -35,6 +35,9 @@ public class Movement : MonoBehaviour
 
     public void destroyPassenger(Collision collision)
     {
+        spawnScript = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnScript>();
+        spawnScript.setShouldSpawn();
+
         // If a passenger reaches the left level border: Check if they are a Patriot and calculate score accordingly
         if (collision.gameObject.tag == "LevelBorderLeft")
         {
@@ -49,6 +52,7 @@ public class Movement : MonoBehaviour
                 feedbackMessagesScript.PassengerOnBoardFeedback();
                 scoreScript.AddScore(1);
             }
+            Destroy(gameObject);
         }
 
         // Gain 5 Points if you shoot a Patriot
@@ -56,6 +60,7 @@ public class Movement : MonoBehaviour
         {
             feedbackMessagesScript.ShotPatriotFeedback();
             scoreScript.AddScore(5);
+            StartCoroutine(PlayBloodParticles());
         }
 
         // Lose 5 Points if you shoot a Civillian
@@ -63,11 +68,18 @@ public class Movement : MonoBehaviour
         {
             feedbackMessagesScript.ShotPassengerFeedback();
             scoreScript.AddScore(-5);
+            StartCoroutine(PlayBloodParticles());
         }
+    }
 
-        spawnScript = GameObject.FindGameObjectWithTag("Spawner").GetComponent<SpawnScript>();
-        spawnScript.setShouldSpawn();
+    IEnumerator PlayBloodParticles()
+    {
+        ParticleSystem bloodParticleSystem = GetComponent<ParticleSystem>();
+        bloodParticleSystem.Play();
+        movementSpeed = 1;
 
+        yield return new WaitForSeconds(1);
         Destroy(gameObject);
     }
+
 }

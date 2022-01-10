@@ -5297,6 +5297,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Passenger03
       objectReference: {fileID: 0}
+    - target: {fileID: 4924287075711556202, guid: d2b635e21fe0bec4d871dc546d7aac19, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2b635e21fe0bec4d871dc546d7aac19, type: 3}
 --- !u!4 &4711991446643240356 stripped
