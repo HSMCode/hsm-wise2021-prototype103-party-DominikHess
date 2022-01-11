@@ -5,7 +5,7 @@ using UnityEngine;
 public class TurningAroundScript : MonoBehaviour
 {
     private float speed = 0.2f;
-    private float minRotation = 200;
+    private float minRotation = 235;
     private float maxRotation = 320;
 
     void Update()
