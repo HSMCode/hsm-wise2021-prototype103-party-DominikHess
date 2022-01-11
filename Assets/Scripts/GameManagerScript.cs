@@ -14,16 +14,25 @@ public class GameManagerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        // Debug Commands
+
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             Restart();
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            ReturnToMainMenu();
         }
     }
 
     public void Restart()
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("GameOver");
+    }
 
-       // SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("Level01");
     }
 }

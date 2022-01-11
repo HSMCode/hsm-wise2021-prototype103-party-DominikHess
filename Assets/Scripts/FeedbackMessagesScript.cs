@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class FeedbackMessagesScript : MonoBehaviour
 {
     public Text feedbackMessage;
-    private float fadingTime = 1.5f;
+    private float displayTime = 1.25f;
+    private float fadingTime = 0.75f; 
     private Color bonusColor;
     private Color malusColor;
-
 
     void Start()
     {
@@ -18,51 +18,50 @@ public class FeedbackMessagesScript : MonoBehaviour
         feedbackMessage.enabled = false;
     }
 
-    public void DisplayFeedbackMessage()
+    public void DisplayText(Text text)
     {
         feedbackMessage.enabled = true;
-        StartCoroutine(FadeTextToZeroAlpha());
+        StartCoroutine(FadeTextToZeroAlpha(text));
     }
 
     public void ShotPatriotFeedback()
     { 
         feedbackMessage.text = "Patriot killed! Score: +5";
         feedbackMessage.color = bonusColor;
-        DisplayFeedbackMessage();
+        DisplayText(feedbackMessage);
     }
 
     public void ShotPassengerFeedback()
     {
         feedbackMessage.text = "Civillian killed! Score: -5";
         feedbackMessage.color = malusColor;
-        DisplayFeedbackMessage();
+        DisplayText(feedbackMessage);
     }
 
     public void PassengerOnBoardFeedback() 
     {
         feedbackMessage.text = "Civillian on board! Score: +1";
         feedbackMessage.color = bonusColor;
-        DisplayFeedbackMessage();
+        DisplayText(feedbackMessage);
     }
 
     public void PatriotOnBoardFeedback()
     {
         feedbackMessage.text = "Patriot on board!";
         feedbackMessage.color = malusColor;
-        DisplayFeedbackMessage();
+        DisplayText(feedbackMessage);
     }
 
-    private IEnumerator FadeTextToZeroAlpha()
+    private IEnumerator FadeTextToZeroAlpha(Text text)
     {
-        feedbackMessage.color = new Color(feedbackMessage.color.r, feedbackMessage.color.g, feedbackMessage.color.b, 1);
-        while (feedbackMessage.color.a > 0.0f)
+        yield return new WaitForSeconds(displayTime);
+
+        text.color = new Color(text.color.r, text.color.g, text.color.b, 1);
+        while (text.color.a > 0.0f)
         {
-            feedbackMessage.color = new Color(feedbackMessage.color.r, feedbackMessage.color.g, feedbackMessage.color.b, feedbackMessage.color.a - (Time.deltaTime / fadingTime));
+            text.color = new Color(text.color.r, text.color.g, text.color.b, text.color.a - (Time.deltaTime / fadingTime));
             yield return null;
         }
+        feedbackMessage.enabled = false;
     }
 }
-
-
-
-
