@@ -21,7 +21,7 @@ public class ProcessHealthScript : MonoBehaviour
     {
         if (currentHealth < 1)
         {
-            FindObjectOfType<GameManagerScript>().Restart();
+            FindObjectOfType<GameManagerScript>().GameOver();
         } 
     }
 

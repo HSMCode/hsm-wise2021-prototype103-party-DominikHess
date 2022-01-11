@@ -18,20 +18,32 @@ public class GameManagerScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Restart();
-        }
-        if (Input.GetKeyDown(KeyCode.W))
-        {
             ReturnToMainMenu();
         }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            StartLevel01();
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            GameOver();
+        }
+        
     }
 
-    public void Restart()
+    public void GameOver()
     {
         SceneManager.LoadScene("GameOver");
     }
 
     public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("TitleScreen");
+    }
+
+    public void StartLevel01()
     {
         SceneManager.LoadScene("Level01");
     }
