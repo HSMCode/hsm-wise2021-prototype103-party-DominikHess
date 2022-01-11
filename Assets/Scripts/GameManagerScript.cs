@@ -47,4 +47,14 @@ public class GameManagerScript : MonoBehaviour
     {
         SceneManager.LoadScene("Level01");
     }
+
+    public void ShowCredits()
+    {
+        SceneManager.LoadScene("GameOver"); // To Do
+    }
+
+    public void ShowHowToPlay()
+    {
+        SceneManager.LoadScene("HowToPlay");
+    }
 }

@@ -613,7 +613,7 @@ GameObject:
   - component: {fileID: 646083354}
   - component: {fileID: 646083353}
   m_Layer: 0
-  m_Name: UI_TopBar
+  m_Name: UI_Bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -826,7 +826,7 @@ GameObject:
   - component: {fileID: 976719122}
   - component: {fileID: 976719121}
   m_Layer: 0
-  m_Name: Plane
+  m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -12,4 +12,12 @@ public class ButtonScript : MonoBehaviour
     {
         FindObjectOfType<GameManagerScript>().ReturnToMainMenu();
     }
+    public void howToPlayButton()
+    {
+        FindObjectOfType<GameManagerScript>().ShowHowToPlay();
+    }
+    public void creditsButton()
+    {
+        FindObjectOfType<GameManagerScript>().ShowCredits();
+    }
 }
