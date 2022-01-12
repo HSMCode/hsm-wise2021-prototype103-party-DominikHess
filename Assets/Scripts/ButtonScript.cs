@@ -4,48 +4,50 @@ using UnityEngine;
 
 public class ButtonScript : MonoBehaviour
 {
-    private AudioSource audio;
+    private GameManagerScript gameManagerScript;
+    private float delay = 1f;
 
     void Start()
     {
-        audio = GetComponent<AudioSource>();
+        gameManagerScript = FindObjectOfType<GameManagerScript>();
     }
 
     public void playButton()
     {
-        audio.Play();
-        Invoke("play", audio.clip.length);
+        gameManagerScript.playButtonSound();
+        Invoke("play", delay);
     }
+
     public void mainMenuButton()
     {
-        audio.Play();
-        Invoke("mainMenu", audio.clip.length);
+        gameManagerScript.playButtonSound();
+        Invoke("mainMenu", delay);
     }
     public void howToPlayButton()
     {
-        audio.Play();
-        Invoke("howToPlay", audio.clip.length);
+        gameManagerScript.playButtonSound();
+        Invoke("howToPlay", delay);
     }
     public void creditsButton()
     {
-        audio.Play();
-        Invoke("credits", audio.clip.length);
+        gameManagerScript.playButtonSound();
+        Invoke("credits", delay);
     }
 
     private void play()
     {
-        FindObjectOfType<GameManagerScript>().StartLevel01();
+        gameManagerScript.StartLevel01();
     }
     private void mainMenu()
     {
-        FindObjectOfType<GameManagerScript>().ReturnToMainMenu();
+        gameManagerScript.ReturnToMainMenu();
     }
     private void howToPlay()
     {
-        FindObjectOfType<GameManagerScript>().ShowHowToPlay();
+        gameManagerScript.ShowHowToPlay();
     }
     private void credits()
     {
-        FindObjectOfType<GameManagerScript>().ShowCredits();
+        gameManagerScript.ShowCredits();
     }
 }

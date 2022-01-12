@@ -5,6 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
+    private AudioSource audio;
+
+    void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
 
     void Update()
     {
@@ -12,6 +18,11 @@ public class GameManagerScript : MonoBehaviour
         {
             ReturnToMainMenu();
         }        
+    }
+
+    public void playButtonSound()
+    {
+        audio.Play();
     }
 
     public void GameOver()
