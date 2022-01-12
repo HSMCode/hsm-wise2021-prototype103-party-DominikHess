@@ -1311,7 +1311,7 @@ GameObject:
   - component: {fileID: 4714930186722532745}
   - component: {fileID: 5989824120899174421}
   m_Layer: 0
-  m_Name: Passenger01
+  m_Name: Patriot01
   m_TagString: Patriot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
