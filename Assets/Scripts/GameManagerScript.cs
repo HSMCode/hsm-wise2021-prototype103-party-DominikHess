@@ -5,32 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManagerScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
-        // Debug Commands
-
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             ReturnToMainMenu();
-        }
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            StartLevel01();
-        }
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            GameOver();
-        }
-        
+        }        
     }
 
     public void GameOver()
@@ -50,7 +31,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void ShowCredits()
     {
-        SceneManager.LoadScene("GameOver"); // To Do
+        SceneManager.LoadScene("Credits");
     }
 
     public void ShowHowToPlay()

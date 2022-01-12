@@ -14,7 +14,7 @@ public class GameOverScript : MonoBehaviour
 
     void Update()
     {
-        if (Input.anyKey && !audio.isPlaying)
+        if (Input.anyKey && Time.timeSinceLevelLoad > 2.5f)
         {
             FindObjectOfType<GameManagerScript>().ReturnToMainMenu();
         }
