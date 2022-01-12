@@ -16,7 +16,7 @@ public class SpawnScript : MonoBehaviour
 
     public void spawnPassenger()
     {
-        random = Random.Range(0, 3);   
+        random = Random.Range(0, passengers.Length);   
         GameObject targetClone = Instantiate(passengers[random]) as GameObject;
         targetClone.transform.position = new Vector3(-3.5f, 1, 30);
 
