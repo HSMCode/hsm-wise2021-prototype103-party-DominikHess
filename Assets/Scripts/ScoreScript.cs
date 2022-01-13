@@ -13,6 +13,20 @@ public class ScoreScript : MonoBehaviour
         scoreText.text = "Score: " + score;
     }
 
+    void Update()
+    {
+        if (score < 0)
+        {
+            Invoke("NegativeScore", 1.5f);
+        }
+    }
+
+    private void NegativeScore()
+    {
+        GameOverScript.teaDestroyed = false;
+        FindObjectOfType<GameManagerScript>().GameOver();
+    }
+
     public void AddScore(int addedValue)
     {
         score += addedValue;

@@ -21,6 +21,7 @@ public class ProcessHealthScript : MonoBehaviour
     {
         if (currentHealth < 1)
         {
+            GameOverScript.teaDestroyed = true;
             FindObjectOfType<GameManagerScript>().GameOver();
         } 
     }

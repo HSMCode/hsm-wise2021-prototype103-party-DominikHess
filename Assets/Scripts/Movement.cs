@@ -63,7 +63,7 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.tag == "Patriot")
         {
             feedbackMessagesScript.ShotPatriotFeedback();
-            scoreScript.AddScore(5);
+            scoreScript.AddScore(3);
             StartCoroutine(PlayBloodParticles());
             soundEffectsScript.playSuccessSound();
         }
@@ -72,7 +72,7 @@ public class Movement : MonoBehaviour
         if (collision.gameObject.tag == "Passenger")
         {
             feedbackMessagesScript.ShotPassengerFeedback();
-            scoreScript.AddScore(-5);
+            scoreScript.AddScore(-10);
             StartCoroutine(PlayBloodParticles());
             soundEffectsScript.playFailSound();
         }

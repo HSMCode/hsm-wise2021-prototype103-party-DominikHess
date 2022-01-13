@@ -26,14 +26,14 @@ public class FeedbackMessagesScript : MonoBehaviour
 
     public void ShotPatriotFeedback()
     { 
-        feedbackMessage.text = "Patriot killed! Score: +5";
+        feedbackMessage.text = "Patriot killed! Score: +3";
         feedbackMessage.color = bonusColor;
         DisplayText(feedbackMessage);
     }
 
     public void ShotPassengerFeedback()
     {
-        feedbackMessage.text = "Civillian killed! Score: -5";
+        feedbackMessage.text = "Civillian killed! Score: -10";
         feedbackMessage.color = malusColor;
         DisplayText(feedbackMessage);
     }
