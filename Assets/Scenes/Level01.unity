@@ -4869,6 +4869,10 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 974888130}
+    - target: {fileID: 917519257284785328, guid: 590605ac96697624ebe21e7178887e1e, type: 3}
+      propertyPath: maxHealth
+      value: 5000
+      objectReference: {fileID: 0}
     - target: {fileID: 917519257284785329, guid: 590605ac96697624ebe21e7178887e1e, type: 3}
       propertyPath: shootSounds.Array.size
       value: 3

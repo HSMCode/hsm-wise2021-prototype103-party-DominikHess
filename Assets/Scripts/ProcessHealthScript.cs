@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProcessHealthScript : MonoBehaviour
 {
-    public int maxHealth = 10000;
+    public int maxHealth = 5000;
     public int currentHealth;
     public int patriotAmount = 0;
     public HealthBar healthBar;

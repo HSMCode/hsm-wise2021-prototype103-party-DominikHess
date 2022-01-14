@@ -897,7 +897,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: 27eb517fbf73d2b4da79002567092498, type: 3}
-    m_FontSize: 17
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -912,7 +912,7 @@ MonoBehaviour:
     \r\nThey try to blend in with the civillians to board our ship. \nBut no disguise
     is perfect. If you see anyone wearing \nany of these items they are a patriot
     and must be stopped!\r\n\nOnce they reach the ship they will start to destroy
-    our cargo. The more patriots slipped through, the faster they will accomplish
+    our cargo. \nThe more patriots slipped through, the faster they will accomplish
     their foul goal so stay vigilant!\r\n\u2026 And don\u2018t shoot the civillians!\r\nDismissed!"
 --- !u!222 &911977163
 CanvasRenderer:

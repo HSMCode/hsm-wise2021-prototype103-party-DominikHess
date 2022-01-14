@@ -20,7 +20,7 @@ public class SpawnScript : MonoBehaviour
         GameObject targetClone = Instantiate(passengers[random]) as GameObject;
         targetClone.transform.position = new Vector3(-3.5f, 1, 30);
 
-        random = Random.Range(4, 10);
+        random = Random.Range(8, 12);
         movementScript = targetClone.GetComponent<Movement>();
         movementScript.setMovementSpeed(random);
 
