@@ -7,6 +7,7 @@ public class ShootScript : MonoBehaviour
     public Movement passengerScript;
     public AudioClip[] shootSounds;
     private AudioSource audio;
+    private Animator animator;
     private int random;
     private float lastTimePressed = 0f;
 
@@ -15,6 +16,7 @@ public class ShootScript : MonoBehaviour
     {
         GetComponent<BoxCollider>().enabled = false;
         audio = GetComponent<AudioSource>();
+        animator = GameObject.Find("Musket_Pivot").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -22,6 +24,7 @@ public class ShootScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && Time.time > lastTimePressed + 1.5f)
         {
+            animator.Play("ShootAnimation", 0, 0.25f);
             GetComponent<BoxCollider>().enabled = true;
             playShootSound();
             ParticleSystem smokeParticleSystem = GetComponent<ParticleSystem>();
