@@ -6,10 +6,12 @@ using UnityEngine.SceneManagement;
 public class GameManagerScript : MonoBehaviour
 {
     private AudioSource audio;
+    private MusicScript musicScript;
 
     void Start()
     {
         audio = GetComponent<AudioSource>();
+        musicScript = FindObjectOfType<MusicScript>();
     }
 
     void Update()
@@ -32,11 +34,16 @@ public class GameManagerScript : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
+        if (!musicScript.GetComponent<AudioSource>().isPlaying)
+        {
+            musicScript.GetComponent<AudioSource>().Play();
+        }
         SceneManager.LoadScene("TitleScreen");
     }
 
     public void StartLevel01()
     {
+        musicScript.GetComponent<AudioSource>().Stop();
         SceneManager.LoadScene("Level01");
     }
 
